@@ -79,6 +79,7 @@ class CreateComment extends Component {
             <span style={{marginRight: "10px"}}>Comment</span>
           </label>
           <textarea className="input-s1 form-control" value={this.state.body} onChange={(event) => this.updateFormBody(event.target.value)}></textarea>
+          <br/>
           <button className="btn btn-success btn-sm transition" onClick={() => {this.createComment()}}>Create Comment</button>
           <button className="btn btn-danger btn-sm transition"><Link to={"/posts/" + this.props.match.params.id}>Back To Post</Link></button>
         </div>
