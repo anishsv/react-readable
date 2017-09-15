@@ -30,7 +30,6 @@ class CreatePage extends Component {
     fetch("http://localhost:5001/categories/", {method: "GET", headers: api.headers_one()})
     .then((resp) => {
       resp.json().then((data) => {
-        // console.log(data, this);
         var obj = {
           type: actions.LOAD_POSTS,
           categories: data.categories
@@ -42,17 +41,14 @@ class CreatePage extends Component {
 
   updateFormTitle(value) {
     this.setState({title: value});
-    //console.log(this);
   }
 
   updateFormBody(value) {
     this.setState({body: value});
-    //console.log(this);
   }
 
   updateFormCategory(value) {
     this.setState({category: value});
-    //console.log(this);
   }
 
   validateNewPostInputs() {
@@ -74,7 +70,6 @@ class CreatePage extends Component {
       author: this.state.owner,
       category: this.state.category
     }
-    console.log(obj);
 
     return JSON.stringify(obj);
   }
@@ -90,7 +85,6 @@ class CreatePage extends Component {
     {method: "POST", body: body, headers: api.headers_one()})
     .then((resp) => {
       resp.json().then((data) => {
-        // console.log(data, this);
         var obj = {
           type: actions.ADD_POST,
           id: data.id,
@@ -114,25 +108,25 @@ class CreatePage extends Component {
       <div className="App">
         <Navbar />
         <div className="Main post-creation">
-        <h3>Create Post</h3>
-        <div className="col-md-4">
-          <div className="form-group">
-            <input type="text" className="input-s1 form-control" placeholder="Title" value={this.state.title} onChange={(event) => this.updateFormTitle(event.target.value)}/>
+          <h3>Create Post</h3>
+          <div className="col-md-4">
+            <div className="form-group">
+              <input type="text" className="input-s1 form-control" placeholder="Title" value={this.state.title} onChange={(event) => this.updateFormTitle(event.target.value)}/>
+            </div>
+            <div className="form-group">
+              <textarea type="text" className="input-s1 form-control" placeholder="Body" value={this.state.body} onChange={(event) => this.updateFormBody(event.target.value)}></textarea>
+            </div>
+            <div className="form-group">
+              <select value={this.state.category} className="input-s1 form-control" onChange={(event) => this.updateFormCategory(event.target.value)}>
+                <option disabled>Select Category</option>
+                {this.props.categories && this.props.categories.map((category) => (
+                  <option key={category} value={category}>{category}</option>
+                ))}
+              </select>
+            </div>
+            <button className="btn btn-success btn-sm transition" onClick={() => {this.createPost()}}>Submit</button>
+            <button className="btn btn-danger btn-sm transition"><a href="/">Cancel</a></button>
           </div>
-          <div className="form-group">
-            <textarea type="text" className="input-s1 form-control" placeholder="Body" value={this.state.body} onChange={(event) => this.updateFormBody(event.target.value)}></textarea>
-          </div>
-          <div className="form-group">
-            <select value={this.state.category} className="input-s1 form-control" onChange={(event) => this.updateFormCategory(event.target.value)}>
-              <option disabled>Select Category</option>
-              {this.props.categories && this.props.categories.map((category) => (
-                <option key={category} value={category}>{category}</option>
-              ))}
-            </select>
-          </div>
-          <button className="btn btn-success btn-sm transition" onClick={() => {this.createPost()}}>Submit</button>
-          <button className="btn btn-danger btn-sm transition"><a href="/">Cancel</a></button>
-        </div>
         </div>
       </div>
 

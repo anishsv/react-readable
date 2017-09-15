@@ -46,7 +46,6 @@ class PostsByCategory extends Component {
       if (a.voteScore > b.voteScore) {
         return 1;
       }
-      // a.voteScore must be equal to b.voteScore
       return 0;
     });
 
@@ -68,7 +67,6 @@ class PostsByCategory extends Component {
       if (a.voteScore < b.voteScore) {
         return 1;
       }
-      // a.voteScore must be equal to b.voteScore
       return 0;
     });
 

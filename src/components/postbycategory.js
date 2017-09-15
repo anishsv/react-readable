@@ -4,7 +4,7 @@ import * as actions from '../actions'
 import { connect } from 'react-redux'
 import * as api from '../utils/api'
 import { Link } from 'react-router-dom'
-
+import Navbar from './navbar'
 import Post from '../components/post'
 
 class PostByCategory extends Component {
@@ -55,6 +55,7 @@ class PostByCategory extends Component {
     var key = this.getRenderKey();
     return (
       <div className="App">
+        <Navbar />
         <div className="container post-container">
           <div className="row">
             <div className="col-md-9">
@@ -65,7 +66,6 @@ class PostByCategory extends Component {
           </div>
         </div>
       </div>
-
     );
   }
 }

@@ -15,12 +15,10 @@ class Sidebar extends Component {
   }
 
   render(){
-    // console.log(this);
     return (
       <div className="sidebar-containner">
         <a className="menu-link"></a>
         <div style={{display: this.state.displaySidebar}} className="sidebar">
-
         </div>
       </div>
     )

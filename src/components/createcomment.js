@@ -10,7 +10,6 @@ import Navbar from './navbar.js';
 class CreateComment extends Component {
   constructor(props) {
     super(props);
-    //this.setState({component: "Create Comment"});
   }
 
   state = {
@@ -20,7 +19,6 @@ class CreateComment extends Component {
 
   updateFormBody(value) {
     this.setState({body: value});
-    //console.log(this);
   }
 
   validateNewCommentInputs() {
@@ -51,7 +49,6 @@ class CreateComment extends Component {
     {method: "POST", body: body, headers: api.headers_one()})
     .then((resp) => {
       resp.json().then((data) => {
-        // console.log(data, this);
         var obj = {
           type: actions.ADD_COMMENT,
           id: data.id,
@@ -79,10 +76,9 @@ class CreateComment extends Component {
           <br />
           <br/><br/><br/><br/>
           <label >
-            <span style={{marginRight: "10px"}}>Comment</span></label>
-            <textarea className="input-s1 form-control" value={this.state.body} onChange={(event) => this.updateFormBody(event.target.value)}></textarea>
-
-          <br/><br/>
+            <span style={{marginRight: "10px"}}>Comment</span>
+          </label>
+          <textarea className="input-s1 form-control" value={this.state.body} onChange={(event) => this.updateFormBody(event.target.value)}></textarea>
           <button className="btn btn-success btn-sm transition" onClick={() => {this.createComment()}}>Create Comment</button>
           <button className="btn btn-danger btn-sm transition"><Link to={"/posts/" + this.props.match.params.id}>Back To Post</Link></button>
         </div>

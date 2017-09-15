@@ -72,13 +72,8 @@ class Post extends Component {
   }
 
   toggleEditor() {
-    console.log(this.state.displayEditor);
     var value = this.state.displayEditor === 'none' ? "block" : "none";
     this.setState({displayEditor: value,postEditor: true});
-    // this.setState(() => ({
-    //   displayEditor: value,
-    //   postEditor: true,
-    // }))
   }
 
   closePostEditor = () => {
@@ -209,7 +204,6 @@ class Post extends Component {
       if (a.voteScore > b.voteScore) {
         return 1;
       }
-      // a.voteScore must be equal to b.voteScore
       return 0;
     });
 
@@ -230,7 +224,6 @@ class Post extends Component {
       if (a.voteScore < b.voteScore) {
         return 1;
       }
-      // a.voteScore must be equal to b.voteScore
       return 0;
     });
 
@@ -270,7 +263,7 @@ class Post extends Component {
       <div>
       <div className="card mb-4">
         <div className="card-body">
-          <h2 className="card-title"><Link to={"/posts/" + this.props.post.id} >{this.props.post.title}</Link></h2>
+          <h2 className="card-title"><Link to={ "/" +this.props.post.category + "/" + this.props.post.id} >{this.props.post.title}</Link></h2>
           <p className="card-text">{this.props.post.body}</p>
           <div className="vote-container">
           Votes: {this.props.post.voteScore}<br />

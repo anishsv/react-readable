@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import '../App.css';
-import * as actions from '../actions'
-import { connect } from 'react-redux'
-import * as api from '../utils/api'
-import { Link } from 'react-router-dom'
-
+import * as actions from '../actions';
+import { connect } from 'react-redux';
+import * as api from '../utils/api';
+import { Link } from 'react-router-dom';
+import Navbar from './navbar';
 
 class CreatePage extends Component {
   constructor(props) {
@@ -29,6 +29,7 @@ class CreatePage extends Component {
     var keys = this.props.categories ? this.props.categories : false;
     return (
       <div className="App">
+        <Navbar />
         <div className="Main">
           <br />
           <p style={{marginBottom: "75px"}}></p>

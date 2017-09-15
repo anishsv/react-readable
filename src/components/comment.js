@@ -7,7 +7,6 @@ import * as api from '../utils/api'
 class Comment extends Component {
   constructor(props) {
     super(props);
-    //this.setState({component: "Comment"});
   }
 
   state = {
