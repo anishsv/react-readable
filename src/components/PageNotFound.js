@@ -1,4 +1,5 @@
 import React from 'react';
+var Link = require('react-router').Link
 
 const PageNotFound = () =>
   <div>
