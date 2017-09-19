@@ -8,6 +8,7 @@ import CreatePage from './components/createpage'
 import CreateComment from './components/createcomment'
 import PostsByCategory from './components/postsbycategory'
 import PostByCategory from './components/postbycategory'
+import PageNotFound from './components/PageNotFound'
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -19,6 +20,7 @@ const Root = ({ store }) => (
         <Route exact path='/posts/:id/create_comment' component={CreateComment} />
         <Route exact path='/:category' component={PostsByCategory} />
         <Route exact path='/:category/:post_id' component={PostByCategory} />
+        <Route path="*" component={PageNotFound} />
       </div>
     </BrowserRouter>
   </Provider>
